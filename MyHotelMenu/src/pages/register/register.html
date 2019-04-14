@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-navbar color="CustomHeader">
+    <button ion-button menuToggle start>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Register</ion-title>    
+  </ion-navbar>  
+</ion-header>
+<ion-content padding>
+
+  <form #RegisterForm="ngForm" class="myForm" (submit)="doSignup(RegisterForm)">
+    <ion-list>
+      <ion-item>
+        <!--<ion-label fixed>Name</ion-label>-->
+        <ion-input type="text"
+                   name="name"
+                   placeholder="&nbsp;&nbsp;Name"
+                   ngModel
+                   required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-select placeholder="Gender" name="gender" interface="action-sheet" ngModel required>
+          <ion-option>Male</ion-option>
+          <ion-option>Female</ion-option>
+          <ion-option>GBT</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <!--<ion-label fixed>Email</ion-label>-->
+        <ion-input type="email"
+                   name="email"
+                   placeholder="&nbsp;&nbsp;Email"
+                   ngModel
+                   required></ion-input>
+      </ion-item>
+      <ion-item>
+        <!--<ion-label fixed>Mobile</ion-label>-->
+        <ion-input type="number"
+                   name="mobile"
+                   placeholder="&nbsp;&nbsp;Mobile No"
+                   ngModel
+                   required
+                   min="10"
+                   max="12"></ion-input>
+      </ion-item>
+      <ion-item>
+        <!--<ion-label fixed>Password</ion-label>-->
+        <ion-input type="password"
+                   name="password"
+                   placeholder="&nbsp;&nbsp;Password"
+                   ngModel
+                   required></ion-input>
+      </ion-item><br />
+      <ion-item-divider color="light"><b>Address</b></ion-item-divider>
+      <br />
+      <ion-item>        
+        <ion-input type="text"
+                   name="flatNo"
+                   placeholder="&nbsp;&nbsp;Flat / Room No"
+                   ngModel
+                   required></ion-input>
+      </ion-item>
+      <ion-item>        
+        <ion-input type="text"
+                   name="buildName"
+                   placeholder="&nbsp;&nbsp;Building / Chawl Name"
+                   ngModel
+                   required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text"
+                   name="streetAddress1"
+                   placeholder="&nbsp;&nbsp;Street Address 1"
+                   ngModel
+                   required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text"
+                   name="streetAddress2"
+                   placeholder="&nbsp;&nbsp;Street Address 2 and Landmark"
+                   ngModel
+                   required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text"
+                   name="zipCode"
+                   placeholder="&nbsp;&nbsp;Zip Code"
+                   ngModel
+                   required></ion-input>
+      </ion-item>
+      <!--<ion-item>
+    <ion-textarea placeholder="Enter Delivery Address"
+                  ngModel
+                  name="address" required></ion-textarea>
+  </ion-item>-->
+      <div padding>
+        <button ion-button
+                type="submit"
+                block
+                [disabled]="!RegisterForm.valid">
+          Register
+        </button>
+      </div>
+    </ion-list>
+  </form>
+
+</ion-content>

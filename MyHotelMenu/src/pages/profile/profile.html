@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-navbar color="CustomHeader">
+    <button ion-button menuToggle start>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+  <ion-item>
+    <ion-row>
+      <ion-col col-12>
+        <h2><ion-icon name="md-contact"></ion-icon> &nbsp;<b>{{userObject.Name}}</b></h2>
+      </ion-col>      
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <h2 text-wrap><ion-icon name="md-home"></ion-icon> &nbsp;<b>{{userObject.Mobile}}</b></h2>
+      </ion-col>
+    </ion-row>
+    <!--<ion-row>
+      <ion-col col-12>
+        <h2 text-wrap><ion-icon name="md-home"></ion-icon> &nbsp;<b>{{shareService.GetCompleteAddressfromJSONObject(userObject)}}</b></h2>
+      </ion-col>
+    </ion-row>-->
+  </ion-item>  
+  <ion-toolbar no-border-top color="light">
+    <ion-segment [(ngModel)]="Profile">
+      <ion-segment-button value="password" [disabled]="disablePwd">
+        Password
+      </ion-segment-button>
+      <ion-segment-button value="address">
+        Address
+      </ion-segment-button>      
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div [ngSwitch]="Profile">
+    <ion-list *ngSwitchCase="'password'">
+      <form #PasswordForm="ngForm" class="myForm" (submit)="updatePassword(PasswordForm)">
+        <ion-list>
+          <br/>
+          <ion-item>
+            <ion-input type="password"
+                       name="password"
+                       placeholder="&nbsp;&nbsp;Password"
+                       [(ngModel)]="userPassword.pwd"
+                       required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="password"
+                       name="password"
+                       placeholder="&nbsp;&nbsp;Confirm Password"
+                       [(ngModel)]="userPassword.cPwd"
+                       required></ion-input>
+          </ion-item>
+          <div padding>
+            <button ion-button
+                    type="submit"
+                    block
+                    [disabled]="(userPassword.pwd != userPassword.cPwd)">
+              Change Password
+            </button>
+          </div>
+        </ion-list>
+      </form>
+    </ion-list>
+    <ion-list *ngSwitchCase="'address'">
+      <form #AddressForm="ngForm" class="myForm" (submit)="updateAddress(AddressForm)">
+        <ion-list>
+          <br/>
+          <ion-item>
+            <ion-input type="text"
+                       name="flatNo"
+                       placeholder="&nbsp;&nbsp;Flat / Room No"
+                       [(ngModel)]="userAddress.flatNo"
+                       required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text"
+                       name="buildName"
+                       placeholder="&nbsp;&nbsp;Building / Chawl Name"
+                       [(ngModel)]="userAddress.buildName"
+                       required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text"
+                       name="streetAddress1"
+                       placeholder="&nbsp;&nbsp;Street Address 1"
+                       [(ngModel)]="userAddress.s1Address"
+                       required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text"
+                       name="streetAddress2"
+                       placeholder="&nbsp;&nbsp;Street Address 2 and Landmark"
+                       [(ngModel)]="userAddress.s2Address"
+                       required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text"
+                       name="zipCode"
+                       placeholder="&nbsp;&nbsp;Zip Code"
+                       [(ngModel)]="userAddress.zipCode"
+                       required></ion-input>
+          </ion-item>          
+          <div padding>
+            <button ion-button
+                    type="submit"
+                    block
+                    [disabled]="!AddressForm.valid">
+              Update Address
+            </button>
+          </div>
+        </ion-list>
+      </form>
+    </ion-list>    
+  </div>
+</ion-content>

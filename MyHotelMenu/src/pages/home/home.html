@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar color="CustomHeader">
+
+    <button ion-button menuToggle start>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>{{HomePageTitle}}</ion-title>
+
+    <!--<button ion-button menuToggle end>
+      <ion-icon md="md-cart"><ion-badge>{{shareService.BadgeCount}}</ion-badge></ion-icon>
+    </button>-->
+
+  </ion-navbar>
+
+  <ion-searchbar class="SearchColor" (ionInput)="getItems($event)"></ion-searchbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- List Of Menus -->
+  <ion-list>
+    <ion-item *ngFor="let item of arrDisplayMenuList">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-12>
+            <h2>{{item.itemName}}</h2>
+            <p text-wrap>{{item.itemDescription}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            <button color="CustomHeader" *ngIf="item.itemQty == 0" (click)="addItemTocart(item)" ion-button outline float-right small>
+              <ion-icon name="md-restaurant"></ion-icon>
+              Add
+            </button>
+            <span class="ItemPrice" float-left>
+              Rs {{applyPrecisionToValue(item.itemPrice)}}
+            </span>
+            <span *ngIf="item.itemQty > 0" float-right>
+              <button ion-button outline small (click)="removeItemFromCart(item)" color="CustomHeader">
+                <ion-icon name="md-remove"></ion-icon>
+              </button>
+              <button ion-button outline small color="CustomHeader">{{item.itemQty}}</button>
+              <button ion-button outline small (click)="addItemTocart(item)" color="CustomHeader">
+                <ion-icon name="md-add"></ion-icon>
+              </button>
+            </span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item></ion-item>
+  </ion-list>
+  <!-- List of Menus -->
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary" *ngIf="CheckViewCartFooter() > 0" class="FooterCart" (click)="navigateToCartPage();">    
+    <ion-grid>
+      <ion-row>
+        <ion-col col-7>
+          <span *ngIf="FinalCartPrice > 0">Rs {{FinalCartPrice}}</span>
+        </ion-col>
+        <ion-col col-5>
+          View Cart <ion-icon name="md-cart"><ion-badge color="secondary">{{FinalCartCount}}</ion-badge></ion-icon>
+        </ion-col>        
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>  
+</ion-footer>

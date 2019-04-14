@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color="CustomHeader">
+    <button ion-button menuToggle start>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Orders</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding color="light">
+  <ion-card *ngFor="let item of OrdersInfo">
+    <ion-card-header>
+      Order Number # {{item.orderNumber}}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-12>
+            Date : {{item.orderDate}}
+          </ion-col>          
+        </ion-row>
+        <ion-row *ngFor="let childItem of item.itemArray">
+          <ion-col col-9 float-left>
+            {{childItem.itemName}}
+          </ion-col>
+          <ion-col col-3 float-right>
+            x {{childItem.itemQty}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-8 float-left>
+            <b>Total Rs : </b>          
+          </ion-col>
+          <ion-col col-4 float-right>
+            <b>{{item.finalAmount}}</b>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

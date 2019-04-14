@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar color="CustomHeader">
+    <button ion-button menuToggle start>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <form #LoginForm="ngForm" class="myForm" (submit)="doLogin(LoginForm)">
+    <ion-list>
+      <ion-item>
+        <!--<ion-label fixed>Mobile</ion-label>-->
+        <ion-input type="number"
+                   name="Mobile"
+                   placeholder="&nbsp;&nbsp;Mobile No"
+                   ngModel
+                   required
+                   min="10"
+                   max="12"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-select placeholder="Gender" name="Gender" interface="action-sheet" ngModel required>
+          <ion-option>Male</ion-option>
+          <ion-option>Female</ion-option>
+          <ion-option>LGBT</ion-option>
+        </ion-select>
+      </ion-item>     
+      <ion-item>
+        <!--<ion-label fixed>Password</ion-label>-->
+        <ion-input type="password"
+                   name="Password"
+                   placeholder="&nbsp;&nbsp;Password"
+                   ngModel
+                   required></ion-input>
+      </ion-item>      
+      <div padding>
+        <button ion-button
+                type="submit"
+                block
+                [disabled]="!LoginForm.valid">
+          Login
+        </button>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>
