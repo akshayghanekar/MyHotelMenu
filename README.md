@@ -10,6 +10,9 @@ Back End : PHP Slim Framework and MySql <br />
   <img src="https://akshayghanekar.in/assets/work/lb/hotelApp/1.png" width="250" title="hover text">
   <img src="https://akshayghanekar.in/assets/work/lb/hotelApp/2.png" width="250" alt="accessibility text">
   <img src="https://akshayghanekar.in/assets/work/lb/hotelApp/3.png" width="250" alt="accessibility text">
+</p>
+<br />
+<p align="center">
   <img src="https://akshayghanekar.in/assets/work/lb/hotelApp/4.png" width="250" alt="accessibility text">
   <img src="https://akshayghanekar.in/assets/work/lb/hotelApp/5.png" width="250" alt="accessibility text">
   <img src="https://akshayghanekar.in/assets/work/lb/hotelApp/6.png" width="250" alt="accessibility text">
